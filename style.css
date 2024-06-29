@@ -1,0 +1,809 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Odibee+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.cuerpo{
+    background-color: black;
+    margin: 0;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: "Libre Baskerville", sans-serif;
+}
+
+.main{
+    width: min(1400px, 85vw);
+    margin: 10px auto;
+    padding: 20px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.main img{
+    height: 40px;
+}
+.banner .content{
+    font-family: "Odibee Sans", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.banner .content h1{
+    font-size: 17em;
+}
+.banner .content .right{
+    text-align: right;
+    transform: translateY(-30px);
+}
+.banner .content .right h2{
+    font-size: 7em;
+    font-weight: 200;
+}
+.banner .image{
+    width: 100%;
+    height: 600px;
+    background-image: url(imagenes/banner.png) ;
+    position: relative;
+}
+.banner .image img{
+    position: absolute;
+    height: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+}
+nav{
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+.links-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+nav a{
+    height: 100%;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+nav a:hover{
+    background-color: blue;
+    transition: 0.3s ease-out;
+}
+nav .inicio-link{
+    margin-right: auto;
+}
+nav .login{
+    margin-left: auto;
+}
+.nav{
+    height: 60px;
+    background-color: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    box-shadow: -5px 0 5px;
+    font-family: 'Poppins', sans-serif;
+}
+.nav a{
+    height: 100%;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nav a:hover{
+    background-color: blue;
+    transition: 0.3s ease-out;
+}
+.nav .inicio-link{
+    margin-right: auto;
+}
+.nav .login{
+    margin-left: auto;
+}
+
+#sidebar-active{
+    display: none;
+}
+.open-sidebar-button, .close-sidebar-button{
+    display: none;
+}
+.contenido-principal{
+    height: 40vh;
+    background-color: rgb(rgb(3, 3, 3), rgb(0, 0, 0), rgb(0, 0, 0));
+}
+.contenido-principal p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    color: white;
+    font-weight: bold;
+}
+.final{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 300px;
+    width: 100%;
+    box-shadow: -5px 0 5px;
+    padding: 6px 6px;
+    font-family: "Poppins", sans-serif;
+}
+.final .derechos{
+    margin-bottom: 0;
+    text-align: center;
+    color: grey;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.linea{
+    color: white;
+    margin-top: 200px;
+    box-shadow: -5px 0 5px;
+    width: 100%;
+}
+.politica-titulo{
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
+.politica{
+    display: block;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.politica li{
+    padding: 8px 8px;
+    
+}
+.politica li a{
+    color: grey;
+}
+.politica li a:hover{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: .3s;
+}
+.redes{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.redes li{
+    padding: 8px 8px;
+    list-style-type: none;
+
+}
+.redes li:hover{
+   background-color: blue;
+    transition: 0.3s;
+}
+.productos, .articulos{
+    display: grid;
+    justify-content: center;
+    grid-template-columns:repeat(auto-fill, 350px);
+    gap: 50px;
+    margin: auto;
+}
+
+.productos .productos-caja{
+    background-color:#FFFF ;
+    text-align: center;
+    padding: 30px 0;
+    width: 300px;
+    margin: auto;
+}
+.productos-caja img{
+    max-width: 300px;
+}
+.productos-caja img:hover{
+   transition: .3s;
+   scale: 1.1;
+   height: 250px;
+}
+.productos .productos-caja p, .articulo .articulos p{
+  font-size: 18px;
+  margin: auto
+}
+.productos .productos-caja .titulos{
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black;
+}
+.productos .productos-caja .precios {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.titulos:link{
+    color: black;
+}
+.titulos:active{
+color: black;
+}
+.titulos:visited{
+    color: black;
+    }
+.titulos:hover{
+    color: none;
+    }
+
+.fondo{
+    background-color:#FFFF ;
+    font-family: "Poppins", sans-serif;
+}
+.devoluciones{
+    margin: 30px 30px auto;
+    line-height: 25px;
+}
+.devoluciones p{
+padding: 12px;
+margin: 20px 20px auto;
+font-size: 14px;
+text-align: left;
+}
+.devoluciones ul li{
+    padding: 6px;
+    font-size: 14px;
+    list-style-type: disc;
+    margin: 5px 5px auto;
+}
+.devoluciones h2{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px 20px auto;
+    font-weight: bold;
+    font-size: max(18px, 2vw);
+}
+.devoluciones h3{
+    text-align: left;
+    margin: 20px 20px auto;
+    text-transform: uppercase;
+    font-size: max(14px,1.2vw)
+}
+.devoluciones span{
+    font-weight: bold;
+}
+.pasos{
+    font-weight: bold;
+}
+.formulario a{
+    margin: 20px 20px auto;
+    font-size: 14px;
+    text-align: justify;
+}
+.formulario a:link , .formulario a:active, .formulario a:hover, .formulario a:visited{
+    color: grey;
+    font-weight: bold;
+}
+.formulario a:hover{
+    color: rgb(62, 65, 64);
+    transition: .3s;
+    text-decoration: underline;
+}
+.privacidad{
+    text-align: center;
+    color: grey;
+    line-height: 20px;
+}
+.privacidad h2{
+    text-transform: uppercase;
+    color: black;
+    margin: 20px 20px auto;
+    text-align: center;
+}
+.privacidad .noticia-privacidad{
+    text-align: center;
+}
+.privacidad h3{
+    text-transform: uppercase;
+    margin: 20px 20px auto;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 50px;
+}
+.privacidad p, .privacidad ul li{
+    text-align:left;
+    font-size: 14px;
+    margin: 20px 20px auto;
+}
+.privacidad ul li{
+    margin: 20px 20px auto;
+}
+.volver{
+    height: 60px;
+    width: 100%;
+    background-color: rgba(233, 230, 230, 0.623);
+}
+.volver p{
+    display: inline-block;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+.volver p a:active, .volver p a:link, .volver p a:visited{
+    color: black;
+}
+.volver p a:hover{
+    color: grey;
+    transition: .3s;
+}
+.contenedor{
+    display: flex;
+    height: 500px;
+}
+.contenedor-izq{
+    align-items: flex-start;
+    margin-top: 50px;
+    margin-left: 100px;
+    height: 500px;
+    width: 600px;
+    flex-direction: column;
+}
+
+.contenedor-derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 30px;
+    height: 500px;
+    width: 800px;
+    text-align: center;
+    justify-content: flex-start;
+    border-left: 1px solid black;
+    flex-basis: 39%;
+}
+.contenedor-derecha h2{
+    font-size: 32px;
+}
+.contenedor-derecha span, .productos .productos-caja .precios span{
+    color: red;
+    font-weight: bold;
+}
+.contenedor-derecha .tachado, .productos .productos-caja .precios .tachado{
+    text-decoration: line-through;
+    color: grey;
+}
+.contenedor-derecha p{
+    color: grey;
+    margin-top: 30px;
+}
+.contenedor-derecha select{
+    width: 300px;
+    text-align: center;
+    padding: 6px 0;
+}
+.contenedor-derecha button{
+    margin-top: 30px;
+    width: 300px;
+    padding: 12px 0;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+
+}
+.contenedor-derecha .fav-btn{
+    margin-top: 10px;
+    width: 300px;
+    padding: 12px 0;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: 1px solid black;
+
+}
+.tallas{
+    display: grid;
+    grid-template-columns:repeat(auto-fill,300px);
+    margin:70px;
+    justify-content: center;
+    gap: 30px;
+}
+.tallas .tallas-caja{
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+    box-shadow: 1px 2px 5px;
+
+}
+.tallas-caja img{
+    max-width: 300px;
+}
+.tallas-caja img:hover{
+    scale: 1.1;
+    transition: .3s;
+    border: 1px solid black;
+    box-shadow: 0 5px 10px rgba(84, 145, 230, 0.416);
+}
+.size-chart{
+    text-align: center;
+    margin: 30px;
+    font-size: 32px;
+}
+table{
+    font-size: 16px;
+   padding: 12px 12px;
+   width: 90%;
+   text-align: center;
+   margin: 20px 20px;
+   line-height: 50px;
+   margin-bottom: 100px;
+}
+table th{
+    border-bottom: 1px solid black;
+}
+.container{
+    display: flex;
+    height: 400px;
+    margin-top: 100px;
+}
+.container-izq{
+    align-items: flex-start;
+    margin-top: 50px;
+    margin-left: 100px;
+    height: 500px;
+    width: 600px;
+    flex-direction: column;
+}
+.container-derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+    margin-right: 150px;
+    height: 500px;
+    width: 800px;
+    text-align: center;
+    justify-content: flex-start;
+    flex-basis: 39%;
+}
+.container-derecha h2{
+    font-size: 32px;
+}
+.container-derecha p{
+    color: grey;
+    margin-top: 30px;
+    padding: 12px 0;
+
+}
+.descripcion-contenido p{
+    color: black;
+    padding: 8px ;
+}
+.descripcion-contenido .descripcion, .descripcion-contenido .caracteristicas, .descripcion-contenido .caracteristicas-lista ul{
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.contenedor-tallas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 300px;
+    height: 900px;
+}
+
+.cuerpo-login{
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(imagenes/imagen-inicio.JPG);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+.wrapper{
+    display: flex;
+    position: relative;
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(0,0,0,.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: #FFF;
+    border-radius: 10px;
+    padding: 30px 40px;
+    transition: height .2s ease;
+    overflow: hidden;
+}
+.wrapper .form-box{
+    width: 95%;
+}
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper.active{
+    height: 520px;
+}
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-700px);
+}
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(700px);
+    left: 10px;
+}
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper .input-box{
+    position: relative;
+    width: 95%;
+    height: 50px;
+    margin: 30px 0;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 40px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #FFF;
+}
+.input-box input::placeholder{
+    color: #FFF;
+}
+.input-box svg{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.wrapper .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.remember-forgot label input{
+    color: #FFF;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: #FFF;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background-color: #FFF;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+.wrapper .register-link, .wrapper .login-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+.register-link p a, .login-link p a {
+    color: #FFF;
+}
+.register-link p a:hover, .login-link p a:hover{
+    text-decoration: underline;
+}
+
+.carrito-titulo h1{
+    color: black;
+    text-align: left;
+    font-size: 22px;
+    margin: 30px 0 15px 15px;
+}
+.carrito, .favoritos {
+    margin: 50px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+@media(max-width: 722px) {
+    .links-container{
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 300px;
+        background-color: black;
+        box-shadow: -5px 0 5px rgb(0,0,0,0.25);
+        transition: .7s ease-out;
+    }   
+    nav a, .nav a{
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: center;
+    }
+    .open-sidebar-button, .close-sidebar-button{
+        padding: 20px;
+        display: block;
+    }
+
+    #sidebar-active:checked ~ .links-container{
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 1023px){
+    .main img{
+        height: 2em;
+    }
+    .banner .content h1{
+        font-size: 12em;
+    }
+    .banner .content .right{
+        transform: none;
+    }
+    .banner .image img{
+       height: 115%;
+    }
+    .banner .right p{
+        display: none;
+    }
+    .main img{
+        height: unset;
+        width: 100%;
+    }
+    .banner .content h1{
+        font-size: 7em;
+    }
+    .banner .content{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .banner{
+        overflow: hidden;
+}
+}
+
+@media (max-width: 1050px) {
+    .contenedor-izq{
+        flex-direction: column;
+        justify-content: center;
+        width: 300px;
+        height: 300px;
+        font-size: 10px;
+    }
+    .contenedor-derecha{
+        width: 200px;
+        height: 350px;
+        font-size: 14px;
+        margin-left: 100px;
+    }
+     .contenedor-izq img{
+        width: 350px;
+        height: 300px;
+     }
+    .contenedor-derecha p a button, .contenedor-derecha p a .fav-btn, .contenedor-derecha select{
+        margin-top: 10px;
+        width: 200px;
+        padding: 8px;
+        font-size: 8px;
+    }
+    .contenedor-derecha p{
+        margin-top: 15px;
+    }
+}
+@media (max-width: 714px){
+   .contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+   }
+   .contenedor-izq{
+   width: 340px;
+   margin-left: 20px;
+   height: 300px;
+   }
+   .contenedor-derecha{
+    width: 340px;
+    margin-left: 20px;
+    border-left: none;
+    margin-top: 0;
+   }
+   .contenedor-derecha h2{
+    font-size: 18px;
+   }
+    .contenedor-derecha p a button, .contenedor-derecha p a .fav-btn, .contenedor-derecha select{
+        margin-top: 10px;
+        width: 120px;
+        padding: 8px;
+        font-size: 9px;
+    }
+    .contenedor-derecha p, .contenedor-derecha h2{
+        margin-top: 10px;
+    }
+    .descripcion-contenido p, .caracteristicas-lista ul li{
+        font-size: 12px;
+    }
+}
+
+@media (max-width:1000px){
+    .container-izq img{
+        display: none;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .container-derecha{
+        margin-top: 0;
+    }
+}
+@media (max-width:970px){
+    .container-derecha p{
+        padding: 12px;
+        margin-left: 150px;
+        font-size: 12px;
+        max-width: 300px;
+        line-height: 15px;
+    }
+    .container-derecha h2{
+        font-size: 20px;
+        margin-left: 150px;
+    }
+}
