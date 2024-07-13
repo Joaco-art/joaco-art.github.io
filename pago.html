@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Pago</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="fondo">
+
+    <main>
+        <div class="pago-container">
+            <div class="pago-izquierda">
+                <div class="pago-express">
+                    <button onclick="pagoExpress('PayPal')">Pago Express con PayPal</button>
+                    <button onclick="pagoExpress('Google Pay')">Pago Express con Google Pay</button>
+                </div>
+                <div class="pago-manual">
+                    <h2>Dirección y Datos de Pago Manual</h2>
+                    <form>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" id="direccion" name="direccion">
+                        <label for="tarjeta">Número de Tarjeta:</label>
+                        <input type="text" id="tarjeta" name="tarjeta">
+                        <label for="fecha">Fecha de Expiración:</label>
+                        <input type="text" id="fecha" name="fecha">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv">
+                        <button type="submit">Pagar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="pago-derecha">
+                <h2>Resumen de Productos</h2>
+                <div id="resumen-productos"></div>
+                <div id="total-pago"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="pago.js"></script>
+    
+</body>
+</html>

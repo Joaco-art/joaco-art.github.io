@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Love You Tee - White",
+        "price": 29.99,
+        "image": "/imagenes/LOVE YOU - WHITE.png"
+    },
+    {
+        "id": 2,
+        "name": "Love You Tee - Black",
+        "price": 29.99,
+        "image": "/imagenes/LOVE YOU BLACK.png"
+    },
+    {
+        "id": 3,
+        "name": "Carpe Diem Tee - White",
+        "price": 29.99,
+        "image": "/imagenes/CARPE DIEM WHITE.png"
+    },
+    {
+        "id": 4,
+        "name": "Carpe Diem Tee - Black",
+        "price": 29.99,
+        "image": "/imagenes/CARPE_DIEM_BLACK-removebg-preview.png"
+    },
+    {
+        "id": 5,
+        "name": "Oficial Studios Tee - Black",
+        "price": 29.99,
+        "image": "/imagenes/OFICIAL STUDIOS TEE BLACK.png"
+    },
+    {
+        "id": 6,
+        "name": "Oficial Studios Tee - White",
+        "price": 29.99,
+        "image": "/imagenes/PRIAMO OFICIAL STUDIOS WHITE.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Studio Tee - White",
+        "price": 29.99,
+        "image": "/imagenes/STUDIO_TEE_WHITE-removebg-preview.png"
+    },
+    {
+        "id": 8,
+        "name": "Studio Tee - Black",
+        "price": 29.99,
+        "image": "/imagenes/STUDIO BLACK.png"
+    },
+    {
+        "id": 9,
+        "name": "Crown Tee - Black",
+        "price": 29.99,
+        "image": "/imagenes/CROWN TEE BLACK.png"
+    },
+    {
+        "id": 10,
+        "name": "Crown Tee - White",
+        "price": 29.99,
+        "image": "/imagenes/CROWN FRONT.PNG"
+    }
+]

@@ -19,6 +19,7 @@
     margin: 10px auto;
     padding: 20px;
 }
+
 header{
     display: flex;
     justify-content: space-between;
@@ -49,7 +50,10 @@ header{
 .banner .image{
     width: 100%;
     height: 600px;
-    background-image: url(imagenes/banner.png) ;
+    background-image: url(imagenes/banner.png);
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
     position: relative;
 }
 .banner .image img{
@@ -61,10 +65,12 @@ header{
 }
 nav{
     height: 60px;
+    background-color: black;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
+    border: 1px solid black;
     font-family: 'Poppins', sans-serif;
 }
 .links-container{
@@ -79,14 +85,14 @@ nav a{
     padding: 0 25px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: white;
     font-weight: 600;
     font-size: 15px;
 }
 
 nav a:hover{
-    background-color: blue;
+    background-color: rgb(78, 78, 78);
     transition: 0.3s ease-out;
 }
 nav .inicio-link{
@@ -95,38 +101,6 @@ nav .inicio-link{
 nav .login{
     margin-left: auto;
 }
-.nav{
-    height: 60px;
-    background-color: black;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    box-shadow: -5px 0 5px;
-    font-family: 'Poppins', sans-serif;
-}
-.nav a{
-    height: 100%;
-    padding: 0 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    font-size: 15px;
-}
-
-.nav a:hover{
-    background-color: blue;
-    transition: 0.3s ease-out;
-}
-.nav .inicio-link{
-    margin-right: auto;
-}
-.nav .login{
-    margin-left: auto;
-}
-
 #sidebar-active{
     display: none;
 }
@@ -150,43 +124,46 @@ nav .login{
     flex-direction: column;
     background-color: black;
     height: 300px;
-    width: 100%;
-    box-shadow: -5px 0 5px;
+    width: 100vw;
     padding: 6px 6px;
     font-family: "Poppins", sans-serif;
+    box-shadow: 3px 5px 10px;
 }
 .final .derechos{
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0;
     text-align: center;
     color: grey;
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
 }
 
 .linea{
-    color: white;
-    margin-top: 200px;
-    box-shadow: -5px 0 5px;
-    width: 100%;
+    margin-top: 100px;
+    width: 100vw;
+    right: 0;
+    left: 0;
 }
 .politica-titulo{
     margin-top: 30px;
-    margin-left: 5px;
     margin-bottom: 20px;
-    font-size: 22px;
+    font-size: max(22px,1.4vw);
     color: white;
     cursor: pointer;
+    padding-left: 10px;
 }
 .politica{
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 10px;
+    gap: 3px;
 }
 .politica li{
     padding: 8px 8px;
-    
+    padding-left: 25px;
+    font-size: 13px;
 }
 .politica li a{
     color: grey;
@@ -200,19 +177,14 @@ nav .login{
 .redes{
     display: flex;
     justify-content: center;
-    text-align: center;
-    margin-bottom: 15px;
+    margin: 15px 15px auto;
 }
 .redes li{
     padding: 8px 8px;
     list-style-type: none;
 
 }
-.redes li:hover{
-   background-color: blue;
-    transition: 0.3s;
-}
-.productos, .articulos{
+.productos{
     display: grid;
     justify-content: center;
     grid-template-columns:repeat(auto-fill, 350px);
@@ -235,7 +207,7 @@ nav .login{
    scale: 1.1;
    height: 250px;
 }
-.productos .productos-caja p, .articulo .articulos p{
+.productos .productos-caja p{
   font-size: 18px;
   margin: auto
 }
@@ -273,7 +245,7 @@ color: black;
 padding: 12px;
 margin: 20px 20px auto;
 font-size: 14px;
-text-align: left;
+text-align: justify;
 }
 .devoluciones ul li{
     padding: 6px;
@@ -315,17 +287,16 @@ text-align: left;
     text-decoration: underline;
 }
 .privacidad{
-    text-align: center;
     color: grey;
+}
+.privacidad p{
+    text-align: justify;
     line-height: 20px;
 }
 .privacidad h2{
     text-transform: uppercase;
     color: black;
     margin: 20px 20px auto;
-    text-align: center;
-}
-.privacidad .noticia-privacidad{
     text-align: center;
 }
 .privacidad h3{
@@ -336,7 +307,7 @@ text-align: left;
     margin-left: 50px;
 }
 .privacidad p, .privacidad ul li{
-    text-align:left;
+    text-align:justify;
     font-size: 14px;
     margin: 20px 20px auto;
 }
@@ -375,6 +346,9 @@ text-align: left;
     width: 600px;
     flex-direction: column;
 }
+.contenedor-izq img{
+    text-align: center;
+}
 
 .contenedor-derecha{
     display: flex;
@@ -391,6 +365,7 @@ text-align: left;
 }
 .contenedor-derecha h2{
     font-size: 32px;
+    text-transform: uppercase;
 }
 .contenedor-derecha span, .productos .productos-caja .precios span{
     color: red;
@@ -416,6 +391,7 @@ text-align: left;
     background-color: black;
     color: white;
     border: 1px solid black;
+    cursor: pointer;
 
 }
 .contenedor-derecha .fav-btn{
@@ -425,6 +401,7 @@ text-align: left;
     background-color: rgb(255, 0, 0);
     color: white;
     border: 1px solid black;
+    cursor: pointer;
 
 }
 .tallas{
@@ -452,8 +429,9 @@ text-align: left;
 }
 .size-chart{
     text-align: center;
-    margin: 30px;
+    margin-top: 300px;
     font-size: 32px;
+    height: auto;
 }
 table{
     font-size: 16px;
@@ -514,8 +492,8 @@ table th{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 300px;
-    height: 900px;
+    margin-top: 200px;
+    height: auto;
 }
 
 .cuerpo-login{
@@ -651,8 +629,120 @@ table th{
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+.cart-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: 7px;
+    right: 20px;
+}
+
+.carrito-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 90%;
+    gap: 200px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: 1px solid #eeeeee;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.cart-item h2{
+    font-size: 15px;
+}
+.cart-item button{
+    background: transparent;
+    border: none;
+}
+#subtotal{
+    text-align: right;
+    margin-right: 30px;
+    line-height: 35px;
+}
+
+.carrito-titulo, .pago-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.carrito-info, .cart-item, .resumen-item, .pago-express, .pago-manual {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.cart-item img {
+    margin-right: 10px;
+}
+
+#pago-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+#pago-btn:hover{
+    background-color: #054283 ;
+    transition: .3s;
+}
+
+.pago-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pago-izquierda {
+    width: 60%;
+}
+
+.pago-derecha {
+    background-color: rgb(247, 247, 247);
+    width: 40%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+}
+
+.pago-express button, .pago-manual button {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
 
 @media(max-width: 722px) {
+    .cart-count{
+        top: 460px;
+        right: 120px;
+    }
     .links-container{
         flex-direction: column;
         align-items: flex-start;
@@ -665,7 +755,7 @@ table th{
         box-shadow: -5px 0 5px rgb(0,0,0,0.25);
         transition: .7s ease-out;
     }   
-    nav a, .nav a{
+    nav a{
         box-sizing: border-box;
         height: auto;
         width: 100%;
@@ -754,7 +844,7 @@ table th{
    }
    .contenedor-izq{
    width: 340px;
-   margin-left: 20px;
+   margin-left: 0px;
    height: 300px;
    }
    .contenedor-derecha{
@@ -781,6 +871,10 @@ table th{
 }
 
 @media (max-width:1000px){
+    .container-izq{
+        width: 0;
+        height: 0;
+    }
     .container-izq img{
         display: none;
     }
@@ -789,9 +883,22 @@ table th{
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
     }
-    .container-derecha{
+    .container .container-derecha{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
         margin-top: 0;
+    }
+    .container-derecha h2, .container-derecha p{
+        text-align: center;
+        margin: 10px 10px auto;
     }
 }
 @media (max-width:970px){
