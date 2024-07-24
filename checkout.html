@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Checkout Page | Using HTML & CSS</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <button id="checkout-button">Pagar</button>
+
+  <section class="main">
+    <header>
+      <a href="cart.html" class="return">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </a>
+      <h1 class="review">Review Order</h1> 
+    </header>
+
+    <div class="common-parent">
+      <div class="flex">
+        <div class="order-container">
+          <div class="order-process">
+            <div class="shipping">
+              <p>Express Checkout</p>
+            </div>
+            <div class="payment-methods">
+              <button onclick="pagoExpress('PayPal')">PayPal</button>
+              <button onclick="pagoExpress('Google Pay')">Google Pay</button>
+              <button onclick="pagoExpress('Apple Pay')">Apple Pay</button>
+            </div>
+          </div>
+          
+          <div class="info">
+            <h3>Datos de dirección</h3>
+            <p id="direccion-info">
+              Introduce tus datos de dirección.</p>
+            <a onclick="toggleEdit('edit-address')" class="edit">Edit</a>
+            <div id="edit-address">
+              <p id="error-message"></p>
+              <form id="address-form" onsubmit="guardarDireccion(event)">
+                <label  for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required><br>
+                <label  for="apellidos">Apellidos:</label><br>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required><br>
+                <label for="direccion">Dirección:</label><br>
+                <input type="text" id="direccion" name="direccion" placeholder="Dirección" required><br>
+                <label for="ciudad">Ciudad:</label><br>
+                <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required><br>
+                <label for="pais">País:</label><br>
+                <input type="text" id="pais" name="pais" placeholder="País" required><br>
+                <label for="codigo-postal">Código Postal:</label><br>
+                <input type="text" id="codigo-postal" name="codigo-postal" placeholder="Código" required><br><br>
+                <button type="submit">Confirmar</button>
+              </form>
+            </div>
+          </div>
+  
+          <hr aria-hidden="true" class="divider">
+  
+          <div class="info">
+            <div class="optional">
+              <h3>Delivery instructions (optional)</h3>
+              <p id="instrucciones-info">
+                Introduce códigos necesarios o información necesaria para el reparto.</p>
+            </div>
+            <a onclick="toggleEdit('add-instructions')" class="edit" style="margin-top: 10px;">Add</a>
+            <div id="add-instructions">
+              <input type="text">
+              <button onclick="guardarInstrucciones()">Confirmar</button>
+            </div>
+          </div>
+  
+          <hr aria-hidden="true" class="divider">
+  
+          <div class="info">
+            <div class="optional">
+              <h3>Detalles del producto</h3>
+              <p>Mira los detalles de tus productos seleccionados para tu compra.</p>
+            </div>
+            <a onclick="mostrarDetalles()" class="edit">View details</a>
+            <div id="resumen-productos"></div>
+          </div>
+        </div>
+        
+        <div class="payment-container">
+          <div class="p-order" style="flex: 3;">
+            <button class="btn" id="order"></button><br>
+            <span class="privacy">
+              Al implementar esta compra, aceptas nuestra 
+              <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a>
+            </span>
+          </div>
+
+          <div class="order-summary">
+            <div class="subtotal">
+              <span class="sub">
+                Subtotal 
+              </span>
+              <div class="sub-price" id="sub-price"></div>
+            </div>
+
+            <div class="subtotal">
+              <span class="sub">Envío</span>
+              <div id="envio"></div>
+            </div>
+            
+
+            
+            <hr aria-hidden="true" class="divide">
+
+            <div class="subtotal">
+              <span class="estimated">Total Estimado</span>
+              <div id="total-pago"></div>
+            </div>
+
+            <div class="subtotal">
+              <div class="payment-card">
+                <span id="tarjeta-info">Ending in 5959</span>
+              </div>
+            </div>
+
+            
+              <a onclick="toggleEdit('add-payment')" class="edit">+ Add new payment</a>
+              <div id="add-payment">
+                <form id="payment-form" onsubmit="guardarTarjeta(event)">
+                  <label for="nombre-tarjeta">Nombre en la Tarjeta:</label><br>
+                  <input type="text" id="nombre-tarjeta" name="nombre-tarjeta"><br>
+                  <label for="numero-tarjeta">Número de Tarjeta:</label><br>
+                  <input type="text" id="numero-tarjeta" name="numero-tarjeta"><br>
+                  <label for="fecha-expiracion">Fecha de Expiración:</label><br>
+                  <input type="text" id="fecha-expiracion" name="fecha-expiracion"><br>
+                  <label for="cvv">CVV:</label><br>
+                  <input type="text" id="cvv" name="cvv"><br><br>
+                  <button type="submit">Confirmar</button>
+                </form>
+              </div>
+            
+
+            
+              <a onclick="toggleEdit('edit-payment')" class="edit">Edit payment</a>
+              <div id="edit-payment">
+                <form id="edit-payment-form" onsubmit="guardarEdicionTarjeta(event)">
+                  <label  for="edit-nombre-tarjeta">Nombre en la Tarjeta:</label><br>
+                  <input type="text" id="edit-nombre-tarjeta" name="edit-nombre-tarjeta" placeholder="Nombre del titular"><br>
+                  <label  for="edit-numero-tarjeta">Número de Tarjeta:</label><br>
+                  <input type="number" id="edit-numero-tarjeta" name="edit-numero-tarjeta" placeholder="Número de Tarjeta"><br>
+                  <label  for="edit-fecha-expiracion">Fecha de Expiración:</label><br>
+                  <input type="date" id="edit-fecha-expiracion" name="edit-fecha-expiracion" placeholder="Caducidad"><br>
+                  <label  for="edit-cvv">CVV:</label><br>
+                  <input type="text" maxlength="3" id="edit-cvv" name="edit-cvv" placeholder="CVV"><br><br>
+                  <button type="submit">Confirmar</button>
+                </form>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="pago.js"></script>
+</body>
+</html>
+

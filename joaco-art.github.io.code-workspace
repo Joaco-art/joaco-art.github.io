@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../Downloads/stripe-sample-code/public"
+		},
+		{
+			"path": "../../../Downloads/stripe-sample-code (1)"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "joaco-art.github.io"
+	}
+}

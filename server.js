@@ -1,29 +1,21 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken'); // Para autenticación con tokens JWT
-const users = {}; // Simulación de base de datos en memoria
+// Set your secret key. Remember to switch to your live secret key in production.
+// See your keys here: https://dashboard.stripe.com/apikeys
+const stripe = require('stripe')('sk_test_51PUp9OA3lETSLMLLquBQYYevSwU3IEC5yWTSx4grBOc1h8hvRaOCYUe1OZH1oXhuW5nkcxKKcP5S1x6ZkTCG6rcm00Li2ndmjJ');
 
-app.use(bodyParser.json());
-
-app.post('/register', (req, res) => {
-    const { username, password } = req.body;
-    if (users[username]) {
-        return res.json({ success: false, message: 'El usuario ya existe.' });
-    }
-    users[username] = { password }; // Guardar usuario en "base de datos"
-    res.json({ success: true });
-});
-
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    if (!users[username] || users[username].password !== password) {
-        return res.json({ success: false, message: 'Usuario o contraseña incorrectos.' });
-    }
-    const token = jwt.sign({ username }, 'secretKey'); // Generar token JWT
-    res.json({ success: true, token });
-});
-
-app.listen(3000, () => {
-    console.log('Servidor escuchando en puerto 3000');
+const session = await stripe.checkout.sessions.create({
+  line_items: [
+    {
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: 'T-shirt',
+        },
+        unit_amount: 2000,
+      },
+      quantity: 1,
+    },
+  ],
+  mode: 'payment',
+  success_url: 'http://localhost:4242/success.html',
+  cancel_url: 'http://localhost:4242/cancel.html',
 });

@@ -50,7 +50,6 @@ async function loadProduct() {
                     </select>
                     </p>
                     <p><button type="submit" id="agregar-carrito">AGREGAR AL CARRITO</button></p>
-                    <p><button type="button" class="fav-btn" id="favoritos">AÑADIR A FAVORITOS</button></p>
                 </form>
                 <div class="descripcion-contenido">
                     <p>DESCRIPCIÓN</p>
@@ -71,6 +70,7 @@ async function loadProduct() {
 
     // Añadir evento para el formulario del carrito
     document.getElementById('cartForm').addEventListener('submit', addToCart);
+    document.getElementById("favoritos").addEventListener("click", addToWishlist);
 }
 
 // Función para cargar los datos del producto al cargar la página

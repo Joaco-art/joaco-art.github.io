@@ -10,66 +10,81 @@
 <body class="fondo">
 
     <div id="navbar"></div>
-
+    
     <main>
        <div class="carrito-titulo">
-        <h1>Productos favoritos</h1>
+        <h1>Carrito de Compras</h1>
        </div>
-    <div class="favoritos">
-        <div id="resultado"></div>
-    </div>
-    </main>
+
+       <div id="cart-items"></div>
+
+       <div id="subtotal"></div>        
+</main>
 
     <div id="footer"></div>
 
     <script src="index.js"></script>
 
-<script>
-        // Recuperar los productos del carrito desde localStorage
-        const carrito = JSON.parse(localStorage.getItem('wihslist'));
+    <script>
+        async function loadCart() {
+           const cart = JSON.parse(localStorage.getItem('cart')) || [];
+           const cartItemsContainer = document.getElementById('cart-items');
+           cartItemsContainer.innerHTML = ''; // Limpiar el contenedor
 
-        // Mostrar los productos en la página
-        const resultado = document.getElementById('resultado');
-        if (carrito && carrito.length > 0) {
-            carrito.forEach((producto, index) => {
-                const productoDiv = document.createElement('div');
-                productoDiv.className = 'producto';
-                productoDiv.innerHTML = `
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
-                    <div>
-                        <h2>${producto.nombre}</h2>
-                        <p>Precio: $${producto.precio}</p>
-                        <p>Talla: ${producto.talla}</p>
-                        <p>
-                            Cantidad: 
-                            <input type="number" value="${producto.cantidad}" min="1" data-index="${index}">
-                            <button data-index="${index}">Eliminar</button>
-                        </p>
-                    </div>
-                `;
-                resultado.appendChild(productoDiv);
-            });
+           if (cart.length === 0) {
+               cartItemsContainer.innerText = 'El carrito está vacío.';
+               document.getElementById('subtotal').innerText = '';
+               document.getElementById('pago-btn').style.display = 'none';
+               return;
+           }
 
-            // Agregar eventos a los botones de eliminar y campos de cantidad
-            document.querySelectorAll('.producto button').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const index = e.target.getAttribute('data-index');
-                    carrito.splice(index, 1);
-                    localStorage.setItem('wishlist', JSON.stringify(carrito));
-                    location.reload();
-                });
-            });
+           const response = await fetch('productos.json');
+           const products = await response.json();
 
-            document.querySelectorAll('.producto input[type="number"]').forEach(input => {
-                input.addEventListener('change', (e) => {
-                    const index = e.target.getAttribute('data-index');
-                    carrito[index].cantidad = e.target.value;
-                    localStorage.setItem('wishlist', JSON.stringify(carrito));
-                });
-            });
-        } else {
-            resultado.innerText = 'No hay productos en favoritos.';
-        }
-    </script>
+           cart.forEach(item => {
+               const product = products.find(p => p.id == item.id);
+               if (product) {
+                   const itemElement = document.createElement('div');
+                   itemElement.classList.add('cart-item');
+                   itemElement.innerHTML = `
+                   <img src="${product.image}" alt="${product.image}" width="200px" height="150px">
+                   <div class="producto-info">
+                   <h2>${product.name}</h2>
+                   <p>Talla: ${item.size}</p>
+                   </div>
+                   <p>${product.price}EUR</p>
+                   <button onclick="removeFromCart(${item.id}, '${item.size}')"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+                   `;
+          
+                   cartItemsContainer.appendChild(itemElement);
+               }
+           });
+
+    
+       }
+
+       // Función para eliminar un producto del carrito
+       function removeFromCart(productId, size) {
+           let cart = JSON.parse(localStorage.getItem('cart')) || [];
+           cart = cart.filter(item => !(item.id == productId && item.size == size));
+           localStorage.setItem('cart', JSON.stringify(cart));
+           updateCartCount();
+           loadCart(); // Recargar el carrito después de eliminar el artículo
+       }
+
+       // Función para actualizar el contador del carrito
+       function updateCartCount() {
+           const cart = JSON.parse(localStorage.getItem('cart')) || [];
+           const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+           document.getElementById('cart-count').innerText = totalCount;
+       }
+
+
+       // Cargar elementos del carrito al cargar la página
+       window.onload = () => {
+           loadCart();
+           updateCartCount();
+       };
+   </script>
 </body>
 </html>

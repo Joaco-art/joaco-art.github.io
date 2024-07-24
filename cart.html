@@ -19,6 +19,7 @@
        <div id="cart-items"></div>
 
        <div id="subtotal"></div>
+       
 
        <button id="pago-btn" onclick="irAPago()">Proceder al Pago</button>
         
@@ -50,7 +51,7 @@
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('cart-item');
                     itemElement.innerHTML = `
-                    <img src="${product.image}" alt="${product.image}" width="200px" height="150px">
+                    <img src="${product.image}" alt="${product.image}" width="150px" height="150px">
                     <div class="producto-info">
                     <h2>${product.name}</h2>
                     <p>Talla: ${item.size}</p>
@@ -111,7 +112,7 @@
 
         // Función para redirigir a la pantalla de pago
         function irAPago() {
-            window.location.href = 'pago.html';
+            window.location.href = '/checkout.html';
         }
 
         // Cargar elementos del carrito al cargar la página
